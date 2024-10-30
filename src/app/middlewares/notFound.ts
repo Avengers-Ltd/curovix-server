@@ -1,4 +1,4 @@
-import httpStatus from 'http-status';
+import httpStatus from "http-status";
 import { Request, Response } from "express";
 
 const notFound = (req: Request, res: Response) => {
