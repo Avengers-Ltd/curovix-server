@@ -5,6 +5,7 @@ import { ROLE } from "./user.constant";
 const userSchema = new Schema<TUser, User>({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
   phone: { type: String, required: true },
   role: { type: String, enum: Object.values(ROLE) },
   isDeleted: { type: Boolean, default: false },
