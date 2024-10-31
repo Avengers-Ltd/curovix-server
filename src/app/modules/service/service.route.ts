@@ -7,7 +7,7 @@ const router = express.Router();
 router.post(
   "/",
   validateRequest(ServiceValidation.createServiceSchema),
-  ServiceController.createService
+  ServiceController.createService,
 );
 
 router.get("/", ServiceController.getAllServices);
@@ -17,7 +17,7 @@ router.get("/:id", ServiceController.getSingleService);
 router.put(
   "/:id",
   validateRequest(ServiceValidation.updateServiceSchema),
-  ServiceController.updateService
+  ServiceController.updateService,
 );
 
 router.delete("/:id", ServiceController.deleteService);

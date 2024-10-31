@@ -3,6 +3,7 @@ import { ROLE } from "./user.constant";
 export type TUser = {
   _id: string;
   name: string;
+  profileImage: string;
   email: string;
   password: string;
   phone: string;
