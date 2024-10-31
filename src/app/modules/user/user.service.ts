@@ -12,12 +12,12 @@ const createUserIntoDb = async (payload: TUser) => {
   return result;
 };
 
-const getAllUsers = async () => {
+const getAllUsersFromDb = async () => {
   const result = await UserModel.find({ isDeleted: false });
   return result;
 };
 
 export const UserServices = {
   createUserIntoDb,
-  getAllUsers,
+  getAllUsersFromDb,
 };
