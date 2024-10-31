@@ -16,8 +16,13 @@ const getAllUsersFromDb = async () => {
   const result = await UserModel.find({ isDeleted: false });
   return result;
 };
+const getUserFromDb = async (userId: string) => {
+  const result = await UserModel.findById(userId);
+  return result;
+};
 
 export const UserServices = {
   createUserIntoDb,
   getAllUsersFromDb,
+  getUserFromDb,
 };
