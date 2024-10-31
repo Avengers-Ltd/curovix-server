@@ -1,5 +1,4 @@
 import config from "../../config";
-import { ROLE } from "./user.constant";
 import { TUser } from "./user.interface";
 import { UserModel } from "./user.model";
 
@@ -13,6 +12,12 @@ const createUserIntoDb = async (payload: TUser) => {
   return result;
 };
 
+const getAllUsers = async () => {
+  const result = await UserModel.find({ isDeleted: false });
+  return result;
+};
+
 export const UserServices = {
   createUserIntoDb,
+  getAllUsers,
 };
