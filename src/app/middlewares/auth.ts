@@ -27,10 +27,16 @@ const auth = async () => {
     const { role, email, iat } = decode
 
     // checking if the user is exists in the database
-    const user = UserModel.isUserExistsByEmail(email)
+    const user = await UserModel.isUserExistsByEmail(email)
 
     if (!user) {
       throw new AppError(httpStatus.NOT_FOUND, 'User is not found')
+    }
+
+    const userStatus = user?.status
+
+    if (userStatus === 'blocked') {
+      throw new AppError(httpStatus.FORBIDDEN, 'User is blocked')
     }
   })
 }
