@@ -1,3 +1,3 @@
-import { TUser } from '../user/user.interface'
+import { TUser } from "../user/user.interface";
 
-export type TLoginUser = Pick<TUser, 'email' | 'password'>
+export type TLoginUser = Pick<TUser, "email" | "password">;
