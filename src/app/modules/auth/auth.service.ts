@@ -13,10 +13,10 @@ const loginUser = async (payload: TLoginUser) => {
     throw new AppError(httpStatus.NOT_FOUND, 'User is not found!')
   }
 
-  // // checking if the user is already deleted
-  // if (user?.isDeleted) {
-  //   throw new AppError(httpStatus.FORBIDDEN, 'User is not found!')
-  // }
+  // checking if the user's status
+  if (user?.status === 'blocked') {
+    throw new AppError(httpStatus.FORBIDDEN, 'User is blocked!')
+  }
 
   //checking if the password is correct
   if (!(await UserModel.isPasswordMatched(payload?.password, user?.password)))
